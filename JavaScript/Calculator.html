@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="GallerySoft.info" />
+
+	<title>Simple calculator</title>
+    <style>
+        #frame1{
+            background-color: #BDBDBD;
+            border: 2px solid blue;
+            margin: auto;
+            width: 310px;
+            height: auto;
+        }
+        .screen{
+            border: 2px solid blue;
+            width: 300px;
+            height: 80px;
+            font-size: 25px;
+        }
+        .button{
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body onload="disable">
+    <div id="frame1">
+        <form name="cal2">
+            <table>
+                <tr>
+                    <td colspan="5"><input type="text" class="screen" name="screen"/></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" value="7" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="button" value="8" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="button" value="9" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="button" value="+" onclick="display(this.value)"/></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" value="4" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="button" value="5" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="button" value="6" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="button" value="-" onclick="display(this.value)"/></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" value="1" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="button" value="2" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="button" value="3" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="button" value="*" onclick="display(this.value)"/></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" value="0" onclick="display(this.value)"/></td>
+                    <td><input class="button" type="reset" value="Del"/></td>
+                    <td><input class="button" type="button" value="=" onclick="calculate()"/></td>
+                    <td><input class="button" type="button" value="/" onclick="display(this.value)"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+    <script>
+        function disable(){
+            document.cal2.screen.disabled = true;
+        }
+        function display(e){
+            document.cal2.screen.value += e;
+        }
+        function calculate(){
+            var sum = eval(document.cal2.screen.value);
+            document.cal2.screen.value = sum;
+        }
+    </script>
+
+</body>
+</html>
